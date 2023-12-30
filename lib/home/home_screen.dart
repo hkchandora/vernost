@@ -13,7 +13,15 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: colorBg,
       body: Center(
         child: MaterialButton(
-          onPressed: () => Navigator.of(context).pushNamed('/students'),
+          onPressed: () {
+            Utility.isNetworkConnection().then((isNetwork) {
+              if (isNetwork) {
+                Navigator.of(context).pushNamed('/students');
+              } else {
+                Utility.showToastMessage(Strings.noInternet);
+              }
+            });
+          },
           color: colorBlack,
           elevation: 2,
           child: const Text(Strings.allStudents,

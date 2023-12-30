@@ -6,4 +6,5 @@ class Strings{
   static const String somethingWentWrong = 'Something went wrong, Try again after some time';
   static const String noData = 'No Data';
   static const String pleaseWait = 'Please wait...';
+  static const String noInternet = 'Please check your internet connection';
 }
