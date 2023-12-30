@@ -5,7 +5,7 @@ import 'package:vernost/students/all_student_repository.dart';
 import 'package:vernost/util/strings.dart';
 
 class AllStudentBloc {
-  AllStudentBloc();
+
   final allStudentRepository = AllStudentRepository();
 
   final _listControllerAllStudent = StreamController<List<AllStudentResponseBean>>.broadcast();
@@ -15,15 +15,11 @@ class AllStudentBloc {
   Future<List<AllStudentResponseBean>> getAllStudentList() async {
     List<AllStudentResponseBean> wrapper = await allStudentRepository.getAllStudentList();
     if (wrapper.isNotEmpty) {
+      ///Sinking the data
       _listControllerAllStudent.sink.add(wrapper);
     } else {
       _listControllerAllStudent.sink.addError(Strings.somethingWentWrong);
     }
     return wrapper;
   }
-
-  // Future<List<AllStudentResponseBean>> getAllStudentList() async{
-  //   List<AllStudentResponseBean> wrapper = await allStudentRepository.getAllStudentList();
-  //   return wrapper;
-  // }
 }

@@ -1,6 +1,4 @@
-import 'package:vernost/network/model_wrapper.dart';
-
-class AllStudentResponseBean extends ModelWrapper<AllStudentResponseBean>{
+class AllStudentResponseBean{
   String? id;
   String? name;
   List<String>? alternateNames;

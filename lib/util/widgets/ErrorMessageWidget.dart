@@ -16,12 +16,7 @@ class ErrorMessageWidgetState extends State<ErrorMessageWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(widget.error!),
-        ],
-      ),
+      child: Text(widget.error!),
     );
   }
 }

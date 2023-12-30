@@ -20,6 +20,7 @@ class _AllStudentsScreenState extends State<AllStudentsScreen> {
 
   @override
   void initState() {
+    ///Call Api to get data
     allStudentBloc.getAllStudentList();
     super.initState();
   }
@@ -41,18 +42,18 @@ class _AllStudentsScreenState extends State<AllStudentsScreen> {
           if (snapshot.data == null) {
             return const NoDataWidget();
           } else {
-            return showStudentList(snapshot);
+            return showStudentListWidget(snapshot);
           }
         } else if (snapshot.hasError) {
           return ErrorMessageWidget(error: snapshot.error.toString());
         } else {
-          return LoadingWidget();
+          return const LoadingWidget();
         }
       },
     );
   }
 
-  showStudentList(AsyncSnapshot<List<AllStudentResponseBean>> snapshot){
+  showStudentListWidget(AsyncSnapshot<List<AllStudentResponseBean>> snapshot){
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
       shrinkWrap: true,

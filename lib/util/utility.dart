@@ -5,6 +5,7 @@ import 'package:vernost/util/colors.dart';
 
 class Utility{
 
+  ///All Screens common app bar
   static commonAppBar({
     required String title,
     required bool isCenter,
@@ -18,6 +19,7 @@ class Utility{
     );
   }
 
+  ///Check Internet connectivity
   static Future<bool> isNetworkConnection() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.mobile) {
@@ -29,14 +31,16 @@ class Utility{
   }
 
 
+  ///Show alert toast message
   static showToastMessage(String message) {
     Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.grey,
-        textColor: Colors.white,
-        fontSize: 16.0);
+      msg: message,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.grey,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
   }
 }

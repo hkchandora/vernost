@@ -19,12 +19,7 @@ class NoDataWidgetState extends State<NoDataWidget> {
 
   Widget _buildNoDataWidget() {
     return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(Strings.noData),
-        ],
-      ),
+      child: Text(Strings.noData),
     );
   }
 }
