@@ -1,12 +1,29 @@
+import 'dart:async';
+
 import 'package:vernost/network/response_bean/all_student_response_bean.dart';
 import 'package:vernost/students/all_student_repository.dart';
+import 'package:vernost/util/strings.dart';
 
 class AllStudentBloc {
   AllStudentBloc();
   final allStudentRepository = AllStudentRepository();
 
-  Future<List<AllStudentResponseBean>> getAllStudentList() async{
+  final _listControllerAllStudent = StreamController<List<AllStudentResponseBean>>.broadcast();
+  get listAllStudent => _listControllerAllStudent.stream;
+
+
+  Future<List<AllStudentResponseBean>> getAllStudentList() async {
     List<AllStudentResponseBean> wrapper = await allStudentRepository.getAllStudentList();
+    if (wrapper.isNotEmpty) {
+      listAllStudent.sink.add(wrapper[0]);
+    } else {
+      _listControllerAllStudent.sink.addError(Strings.somethingWentWrong);
+    }
     return wrapper;
   }
+
+  // Future<List<AllStudentResponseBean>> getAllStudentList() async{
+  //   List<AllStudentResponseBean> wrapper = await allStudentRepository.getAllStudentList();
+  //   return wrapper;
+  // }
 }

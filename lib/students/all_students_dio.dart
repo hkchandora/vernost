@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:vernost/network/response_bean/all_student_response_bean.dart';
 import 'package:vernost/util/base_dio.dart';
@@ -15,7 +17,7 @@ class AllStudentDio extends BaseDio {
       if (response.statusCode == 200) {
         // wrapper = AllStudentResponseBean.fromJson(response.data);
 
-        listData = (response.data as List)
+        listData = (json.decode(json.encode(response.data)) as List)
             .map((data) => AllStudentResponseBean.fromJson(data))
             .toList();
 
