@@ -3,9 +3,9 @@ import 'package:vernost/network/response_bean/all_student_response_bean.dart';
 import 'package:vernost/students/all_student_bloc.dart';
 import 'package:vernost/util/strings.dart';
 import 'package:vernost/util/utility.dart';
-import 'package:vernost/util/widgets/ErrorMessageWidget.dart';
-import 'package:vernost/util/widgets/LoadingWidget.dart';
-import 'package:vernost/util/widgets/NoDataWidget.dart';
+import 'package:vernost/util/widgets/error_message_widget.dart';
+import 'package:vernost/util/widgets/loading_widget.dart';
+import 'package:vernost/util/widgets/no_data_widget.dart';
 
 class AllStudentsScreen extends StatefulWidget {
   const AllStudentsScreen({Key? key}) : super(key: key);
