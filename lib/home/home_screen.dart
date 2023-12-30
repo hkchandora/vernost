@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: colorBg,
       body: Center(
         child: MaterialButton(
-          onPressed: (){},
+          onPressed: () => Navigator.of(context).pushNamed('/students'),
           color: colorBlack,
           elevation: 2,
           child: const Text(Strings.allStudents,

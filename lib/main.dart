@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vernost/home/home_screen.dart';
+import 'package:vernost/students/all_students_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter App',
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => const HomeScreen(),
+        '/students': (context) => const AllStudentsScreen(),
+      },
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+          primarySwatch: Colors.blue,
+          brightness: Brightness.light
       ),
-      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
