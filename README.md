@@ -1,16 +1,15 @@
-# vernost
+# Vernost Marketing Technology Solutions Pvt. Ltd
 
-A new Flutter project.
+Kindly find below task overview
 
-## Getting Started
+&nbsp;
 
-This project is a starting point for a Flutter application.
+### API
+https://hp-api.onrender.com/api/characters/students
 
-A few resources to get you started if this is your first Flutter project:
+&nbsp;
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Used Bloc patten
+- For API call used [dio](https://pub.dev/packages/dio) plugin
+- Used Streambuilder
+- Used Listview builder to show list of all students
