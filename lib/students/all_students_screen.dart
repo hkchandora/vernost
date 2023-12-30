@@ -41,7 +41,7 @@ class _AllStudentsScreenState extends State<AllStudentsScreen> {
           if (snapshot.data == null) {
             return const NoDataWidget();
           } else {
-            return paymentLoanDetails(snapshot);
+            return showStudentList(snapshot);
           }
         } else if (snapshot.hasError) {
           return ErrorMessageWidget(error: snapshot.error.toString());
@@ -52,7 +52,50 @@ class _AllStudentsScreenState extends State<AllStudentsScreen> {
     );
   }
 
-  paymentLoanDetails(snapshot){
-    return Text(snapshot.toString());
+  showStudentList(AsyncSnapshot<List<AllStudentResponseBean>> snapshot){
+    return ListView.builder(
+      physics: const BouncingScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: snapshot.data!.length,
+      itemBuilder: (context, index) {
+        return Card(
+          margin: const EdgeInsets.fromLTRB(16, 8, 8, 16),
+          elevation: 1,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  child: ClipOval(
+                    child: Image.network(
+                      snapshot.data![index].image != null && snapshot.data![index].image!.isNotEmpty
+                          ? snapshot.data![index].image!
+                          : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
+                      fit: BoxFit.fill,
+                      width: 80,
+                      height: 80,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(snapshot.data![index].name ?? "",
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(snapshot.data![index].gender ?? ""),
+                    Text(snapshot.data![index].dateOfBirth ?? ""),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

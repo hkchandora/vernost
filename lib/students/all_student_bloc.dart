@@ -15,7 +15,7 @@ class AllStudentBloc {
   Future<List<AllStudentResponseBean>> getAllStudentList() async {
     List<AllStudentResponseBean> wrapper = await allStudentRepository.getAllStudentList();
     if (wrapper.isNotEmpty) {
-      listAllStudent.sink.add(wrapper[0]);
+      _listControllerAllStudent.sink.add(wrapper);
     } else {
       _listControllerAllStudent.sink.addError(Strings.somethingWentWrong);
     }
