@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vernost/students/all_student_bloc.dart';
 import 'package:vernost/util/strings.dart';
 import 'package:vernost/util/utility.dart';
 
@@ -10,6 +11,15 @@ class AllStudentsScreen extends StatefulWidget {
 }
 
 class _AllStudentsScreenState extends State<AllStudentsScreen> {
+
+  AllStudentBloc allStudentBloc = AllStudentBloc();
+
+  @override
+  void initState() {
+    allStudentBloc.getAllStudentList();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
