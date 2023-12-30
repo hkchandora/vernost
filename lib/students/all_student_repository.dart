@@ -4,5 +4,5 @@ import 'package:vernost/students/all_students_dio.dart';
 class AllStudentRepository{
   final allStudentDio = AllStudentDio();
 
-  Future<AllStudentResponseBean> getAllStudentList() => allStudentDio.getAllStudentList();
+  Future<List<AllStudentResponseBean>> getAllStudentList() => allStudentDio.getAllStudentList();
 }

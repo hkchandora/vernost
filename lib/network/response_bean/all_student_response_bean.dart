@@ -98,21 +98,18 @@ class AllStudentResponseBean extends ModelWrapper<AllStudentResponseBean>{
 class Wand {
   String? wood;
   String? core;
-  int? length;
 
-  Wand({this.wood, this.core, this.length});
+  Wand({this.wood, this.core});
 
   Wand.fromJson(Map<String, dynamic> json) {
     wood = json['wood'];
     core = json['core'];
-    length = json['length'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['wood'] = wood;
     data['core'] = core;
-    data['length'] = length;
     return data;
   }
 }

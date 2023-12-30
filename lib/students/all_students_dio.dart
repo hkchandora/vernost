@@ -6,17 +6,18 @@ import 'package:vernost/util/strings.dart';
 
 class AllStudentDio extends BaseDio {
 
-  Future<AllStudentResponseBean> getAllStudentList() async {
+  Future<List<AllStudentResponseBean>> getAllStudentList() async {
     Dio dio = await getBaseDio();
     AllStudentResponseBean wrapper = AllStudentResponseBean();
+    List<AllStudentResponseBean> listData = [];
     try {
       Response response = await dio.get(Constants.studentApi);
       if (response.statusCode == 200) {
-        wrapper = AllStudentResponseBean.fromJson(response.data);
+        // wrapper = AllStudentResponseBean.fromJson(response.data);
 
-        // List<AllStudentResponseBean> data = (response.data as List)
-        //     .map((data) => AllStudentResponseBean.fromJson(data))
-        //     .toList();
+        listData = (response.data as List)
+            .map((data) => AllStudentResponseBean.fromJson(data))
+            .toList();
 
         wrapper.isSuccessFull = true;
       }
@@ -40,7 +41,7 @@ class AllStudentDio extends BaseDio {
         }
       }
     }
-    return wrapper;
+    return listData;
   }
 
 }

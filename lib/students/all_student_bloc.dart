@@ -5,8 +5,8 @@ class AllStudentBloc {
   AllStudentBloc();
   final allStudentRepository = AllStudentRepository();
 
-  Future<AllStudentResponseBean> getAllStudentList() async{
-    AllStudentResponseBean wrapper = await allStudentRepository.getAllStudentList();
+  Future<List<AllStudentResponseBean>> getAllStudentList() async{
+    List<AllStudentResponseBean> wrapper = await allStudentRepository.getAllStudentList();
     return wrapper;
   }
 }
