@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
           color: colorBlack,
           elevation: 2,
           child: const Text(Strings.allStudents,
-              style: TextStyle(color: colorWhite),
+            style: TextStyle(color: colorWhite),
           ),
         ),
       ),

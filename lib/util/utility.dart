@@ -9,7 +9,7 @@ class Utility{
   }){
     return AppBar(
       title: Text(title,
-        style: const TextStyle(color: colorWhite),
+        style: const TextStyle(color: colorBlack),
       ),
       backgroundColor: appTheme,
       centerTitle: isCenter,
